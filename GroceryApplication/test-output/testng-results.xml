@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-09-09T08:07:08 IST" name="Default suite" finished-at="2025-09-09T08:07:16 IST" duration-ms="8491">
+    <groups>
+    </groups>
+    <test started-at="2025-09-09T08:07:08 IST" name="Default test" finished-at="2025-09-09T08:07:16 IST" duration-ms="8491">
+      <class name="testscript.LoginTest">
+        <test-method is-config="true" signature="intialzeBrowser()[pri:0, instance:testscript.LoginTest@48f2bd5b]" started-at="2025-09-09T08:07:08 IST" name="intialzeBrowser" finished-at="2025-09-09T08:07:15 IST" duration-ms="7044" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- intialzeBrowser -->
+        <test-method signature="verifyloginwithinvalidcredentials()[pri:4, instance:testscript.LoginTest@48f2bd5b]" started-at="2025-09-09T08:07:15 IST" name="verifyloginwithinvalidcredentials" finished-at="2025-09-09T08:07:16 IST" duration-ms="1149" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyloginwithinvalidcredentials -->
+        <test-method is-config="true" signature="closebrowser()[pri:0, instance:testscript.LoginTest@48f2bd5b]" started-at="2025-09-09T08:07:16 IST" name="closebrowser" finished-at="2025-09-09T08:07:16 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closebrowser -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.LoginTest@48f2bd5b]" started-at="2025-09-09T08:07:16 IST" name="driverQuit" finished-at="2025-09-09T08:07:16 IST" duration-ms="216" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyloginwithinvalidcredentials status=SUCCESS method=LoginTest.verifyloginwithinvalidcredentials()[pri:4, instance:testscript.LoginTest@48f2bd5b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverQuit -->
+      </class> <!-- testscript.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
