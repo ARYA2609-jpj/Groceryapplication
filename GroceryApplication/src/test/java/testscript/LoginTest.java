@@ -8,61 +8,66 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestNgBase;
+import constant.Constants;
+import constant.Messages;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends TestNgBase {
 	@Test(priority =1,description = "verify login with valid credentials")
 	public void verifyloginwithvalidcredentials() throws IOException {
-		String usernameValue=ExcelUtility.getStringData(1, 0,"LoginPage" );
-		String passwordValue=ExcelUtility.getStringData(1, 1, "LoginPage");
-		
+		String usernameValue=ExcelUtility.getStringData(1, 0,Constants.LOGINSHEET );
+		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
+
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.enterusername(usernameValue);
 		loginpage.enterpassword(passwordValue);
 		loginpage.signin(); 
-	String expected="https://groceryapp.uniqassosiates.com/admin";
-	String actual=driver.getCurrentUrl();
-	Assert.assertEquals(actual, expected,"Login is not successfull");
+		String expected="https://groceryapp.uniqassosiates.com/admin";
+		String actual=driver.getCurrentUrl();
+		Assert.assertEquals(actual, expected,Messages.VALID_CREDENTIALS_ERROR);
 	}
-	
 
 
-	@Test(priority = 2)
+
+	@Test(priority = 2,description ="Verify login with valid username and invalid password")
 	public void verifyloginwithvalidusernameandinvalidpassword() throws IOException {
-		String username=ExcelUtility.getStringData(2, 0, "LoginPage");
-		String password=ExcelUtility.getStringData(2, 1, "LoginPage");
-		WebElement user=driver.findElement(By.xpath("//input[@name='username']"));
-		user.sendKeys(username);
-		WebElement passwords=driver.findElement(By.xpath("//input[@name='password']"));
-		passwords.sendKeys(password);
-		WebElement sigining=driver.findElement(By.xpath("//button[@type='submit']"));
-		sigining.click();
-	
-}
-	@Test(priority = 3)
+		String username=ExcelUtility.getStringData(2, 0, Constants.LOGINSHEET);
+		String password=ExcelUtility.getStringData(2, 1, Constants.LOGINSHEET);
+		LoginPage loginpage=new LoginPage(driver);
+		loginpage.enterusername(username);
+		loginpage.enterpassword(password);
+		loginpage.signin(); 
+		String expected="https://groceryapp.uniqassosiates.com/admin/login";
+		String actual=driver.getCurrentUrl();
+		Assert.assertEquals(actual, expected,Messages.INVALID_PASSWORD_ERROR);
+
+	}
+	@Test(priority = 3, description ="verify login with invalid username and valid password")
 	public void verifyloginwithinvalidusernameandvalidpassword() throws IOException {
-		String username=ExcelUtility.getStringData(3, 0, "LoginPage");
-		String password=ExcelUtility.getStringData(3, 1, "LoginPage");
-		WebElement user=driver.findElement(By.xpath("//input[@name='username']"));
-		user.sendKeys(username);
-		WebElement passwords=driver.findElement(By.xpath("//input[@name='password']"));
-		passwords.sendKeys(password);
-		WebElement sigining=driver.findElement(By.xpath("//button[@type='submit']"));
-		sigining.click();
-	
-}
-	@Test(priority = 4)
+		String username=ExcelUtility.getStringData(3, 0, Constants.LOGINSHEET);
+		String password=ExcelUtility.getStringData(3, 1, Constants.LOGINSHEET);
+		LoginPage loginpage=new LoginPage(driver);
+		loginpage.enterusername(username);
+		loginpage.enterpassword(password);
+		loginpage.signin(); 
+		String expected="https://groceryapp.uniqassosiates.com/admin/login";
+		String actual=driver.getCurrentUrl();
+		Assert.assertEquals(actual, expected,Messages.INVALID_USERNAME_ERROR);
+
+	}
+	@Test(priority = 4, description = "verify login with invalid crededentials")
 	public void verifyloginwithinvalidcredentials() throws IOException {
-		String username=ExcelUtility.getStringData(4, 0, "LoginPage");
-		String password=ExcelUtility.getStringData(4, 1, "LoginPage");
-		WebElement user=driver.findElement(By.xpath("//input[@name='username']"));
-		user.sendKeys(username);
-		WebElement passwords=driver.findElement(By.xpath("//input[@name='password']"));
-		passwords.sendKeys(password);
-		WebElement sigining=driver.findElement(By.xpath("//button[@type='submit']"));
-		sigining.click();
-	
-	
-}
+		String username=ExcelUtility.getStringData(4, 0, Constants.LOGINSHEET);
+		String password=ExcelUtility.getStringData(4, 1, Constants.LOGINSHEET);
+		LoginPage loginpage=new LoginPage(driver);
+		loginpage.enterusername(username);
+		loginpage.enterpassword(password);
+		loginpage.signin(); 
+		String expected="https://groceryapp.uniqassosiates.com/admin/login";
+		String actual=driver.getCurrentUrl();
+		Assert.assertEquals(actual, expected,Messages.INVALID_CREDENTIALS_ERROR);
+
+
+	}
 }
