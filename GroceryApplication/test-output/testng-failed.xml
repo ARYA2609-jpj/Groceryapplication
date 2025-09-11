@@ -10,8 +10,6 @@
         <methods>
           <include name="verifyadduser"/>
           <include name="closebrowser"/>
-          <include name="verifyhomepage"/>
-          <include name="verifysearch"/>
           <include name="driverQuit"/>
           <include name="intialzeBrowser"/>
         </methods>

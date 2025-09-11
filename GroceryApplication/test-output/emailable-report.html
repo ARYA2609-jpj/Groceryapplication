@@ -9,51 +9,13 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num attn">3</td><td class="num">154,113</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">10</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">55,606</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="3">testscript.AdminTest</td><td><a href="#m0">verifyadduser</a></td><td rowspan="1">1757573528861</td><td rowspan="1">2752</td></tr><tr class="failedeven"><td><a href="#m1">verifyhomepage</a></td><td rowspan="1">1757573541518</td><td rowspan="1">8131</td></tr><tr class="failedeven"><td><a href="#m2">verifysearch</a></td><td rowspan="1">1757573556198</td><td rowspan="1">6830</td></tr><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">testscript.HomeTest</td><td><a href="#m3">verifylogout</a></td><td rowspan="1">1757573520668</td><td rowspan="1">3253</td></tr><tr class="passedodd"><td rowspan="4">testscript.LoginTest</td><td><a href="#m4">verifyloginwithinvalidcredentials</a></td><td rowspan="1">1757573652106</td><td rowspan="1">497</td></tr><tr class="passedodd"><td><a href="#m5">verifyloginwithinvalidusernameandvalidpassword</a></td><td rowspan="1">1757573648233</td><td rowspan="1">338</td></tr><tr class="passedodd"><td><a href="#m6">verifyloginwithvalidcredentials</a></td><td rowspan="1">1757573610539</td><td rowspan="1">1116</td></tr><tr class="passedodd"><td><a href="#m7">verifyloginwithvalidusernameandinvalidpassword</a></td><td rowspan="1">1757573616681</td><td rowspan="1">451</td></tr><tr class="passedeven"><td rowspan="2">testscript.NewsTest</td><td><a href="#m8">verifyaddnews</a></td><td rowspan="1">1757573572651</td><td rowspan="1">3729</td></tr><tr class="passedeven"><td><a href="#m9">verifyresetnews</a></td><td rowspan="1">1757573584309</td><td rowspan="1">2682</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">testscript.AdminTest</td><td><a href="#m0">verifyadduser</a></td><td rowspan="1">1757596732012</td><td rowspan="1">7593</td></tr><tr class="passedeven"><td><a href="#m1">verifyhomepage</a></td><td rowspan="1">1757596743706</td><td rowspan="1">2386</td></tr><tr class="passedeven"><td><a href="#m2">verifysearch</a></td><td rowspan="1">1757596748750</td><td rowspan="1">2654</td></tr><tr class="passedodd"><td rowspan="1">testscript.HomeTest</td><td><a href="#m3">verifylogout</a></td><td rowspan="1">1757596727285</td><td rowspan="1">1804</td></tr><tr class="passedeven"><td rowspan="4">testscript.LoginTest</td><td><a href="#m4">verifyloginwithinvalidcredentials</a></td><td rowspan="1">1757596775790</td><td rowspan="1">218</td></tr><tr class="passedeven"><td><a href="#m5">verifyloginwithinvalidusernameandvalidpassword</a></td><td rowspan="1">1757596771686</td><td rowspan="1">399</td></tr><tr class="passedeven"><td><a href="#m6">verifyloginwithvalidcredentials</a></td><td rowspan="1">1757596764403</td><td rowspan="1">732</td></tr><tr class="passedeven"><td><a href="#m7">verifyloginwithvalidusernameandinvalidpassword</a></td><td rowspan="1">1757596768545</td><td rowspan="1">221</td></tr><tr class="passedodd"><td rowspan="2">testscript.NewsTest</td><td><a href="#m8">verifyaddnews</a></td><td rowspan="1">1757596754439</td><td rowspan="1">1938</td></tr><tr class="passedodd"><td><a href="#m9">verifyresetnews</a></td><td rowspan="1">1757596759914</td><td rowspan="1">1237</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">testscript.AdminTest#verifyadduser</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [User created successfully] but found [×
-Alert!
-Username already exists.]
-	at testscript.AdminTest.verifyadduser(AdminTest.java:49)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">testscript.AdminTest#verifyhomepage</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //h1[text()=&apos;Dashboard&apos;] (tried for 5 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.31.0&apos;, revision: &apos;1ef9f18787*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.6&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.82, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\aryas\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59954}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59954/devtoo..., se:cdpVersion: 140.0.7339.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ad8071187751471172517eea66f977f4
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at testscript.AdminTest.verifyhomepage(AdminTest.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">testscript.AdminTest#verifysearch</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[contains(@class,&apos;alert&apos;)]&quot;}
-  (Session info: chrome=140.0.7339.82)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.31.0&apos;, revision: &apos;1ef9f18787*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.6&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [36c6f70a6a8723a586e693b4e334eb9a, findElement {using=xpath, value=//div[contains(@class,&apos;alert&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.82, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\aryas\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60002}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60002/devtoo..., se:cdpVersion: 140.0.7339.82, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 36c6f70a6a8723a586e693b4e334eb9a
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
-	at pages.AdminPage.getAlertMessage(AdminPage.java:78)
-	at testscript.AdminTest.verifysearch(AdminTest.java:74)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test</h2><h3 id="m0">testscript.AdminTest#verifyadduser</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">testscript.AdminTest#verifyhomepage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">testscript.AdminTest#verifysearch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m3">testscript.HomeTest#verifylogout</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m4">testscript.LoginTest#verifyloginwithinvalidcredentials</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m5">testscript.LoginTest#verifyloginwithinvalidusernameandvalidpassword</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
