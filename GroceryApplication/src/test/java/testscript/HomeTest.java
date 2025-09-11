@@ -27,7 +27,7 @@ public class HomeTest extends TestNgBase {
 		HomePage homePage=new HomePage(driver);
 		homePage.clicklogouticon();
 		homePage.clicklogout();
-		String expected="https://groceryapp.uniqassosiates.com/admin";
+		String expected="https://groceryapp.uniqassosiates.com/admin/login";
 		String actual=driver.getCurrentUrl();
 		Assert.assertEquals(actual, expected,Messages.LOGOUT_ERROR);
 

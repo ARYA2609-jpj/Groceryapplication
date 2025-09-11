@@ -1,6 +1,7 @@
 package base;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +29,7 @@ public class TestNgBase {
 		driver=new ChromeDriver(options);
 		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		//driver.manage().window().minimize();
 		
 	}

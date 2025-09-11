@@ -73,7 +73,13 @@ public class AdminPage {
 	public void clickhome() {
 	    home.click();
 	}
-
-
-
+	public String getAlertMessage() {
+		// TODO Auto-generated method stub
+		WebElement alert = driver.findElement(By.xpath("//div[contains(@class,'alert')]"));
+        return alert.getText();
+    }
 }
+
+
+
+
