@@ -16,7 +16,7 @@ public class LoginPage {
 	@FindBy(xpath="//input[@name='username']")WebElement usernamefield;
 	public void enterusername(String usernameValue) {
 		
-		//usernamefield.sendKeys(usernameValue);
+		usernamefield.sendKeys(usernameValue);
 		
 		
 	}
