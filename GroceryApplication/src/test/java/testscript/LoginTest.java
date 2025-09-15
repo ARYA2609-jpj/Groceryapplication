@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.TestNgBase;
@@ -14,9 +15,9 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends TestNgBase {
-	@Test(priority =1,description = "verify login with valid credentials")
+	@Test(priority =1,description = "verify login with valid credentials",retryAnalyzer = retry.Retry.class)
 	public void verifyloginwithvalidcredentials() throws IOException {
-		String usernameValue=ExcelUtility.getStringData(1, 0,Constants.LOGINSHEET );
+		String usernameValue=ExcelUtility.getStringData(1,0, Constants.LOGINSHEET );
 		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 
 		LoginPage loginpage=new LoginPage(driver);
@@ -56,13 +57,13 @@ public class LoginTest extends TestNgBase {
 		Assert.assertEquals(actual, expected,Messages.INVALID_USERNAME_ERROR);
 
 	}
-	@Test(priority = 4, description = "verify login with invalid crededentials")
-	public void verifyloginwithinvalidcredentials() throws IOException {
-		String username=ExcelUtility.getStringData(4, 0, Constants.LOGINSHEET);
-		String password=ExcelUtility.getStringData(4, 1, Constants.LOGINSHEET);
+	@Test(priority = 4, description = "verify login with invalid crededentials",dataProvider = "loginProvider")
+	public void verifyloginwithinvalidcredentials(String usernameValue,String passwordValue) throws IOException {
+		//String username=ExcelUtility.getStringData(4, 0, Constants.LOGINSHEET);
+		//String password=ExcelUtility.getStringData(4, 1, Constants.LOGINSHEET);
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterusername(username);
-		loginpage.enterpassword(password);
+		loginpage.enterusername(usernameValue);
+		loginpage.enterpassword(passwordValue);
 		loginpage.signin(); 
 		String expected="https://groceryapp.uniqassosiates.com/admin/login";
 		String actual=driver.getCurrentUrl();
@@ -70,4 +71,13 @@ public class LoginTest extends TestNgBase {
 
 
 	}
+	@DataProvider(name="loginProvider")
+	public Object[][] getDataFromDataProvider() throws IOException
+	{
+		return new Object[][] { new Object[] {"user","password"},
+			new Object[] {"username","pass"}
+			
+		};
+	}
+
 }

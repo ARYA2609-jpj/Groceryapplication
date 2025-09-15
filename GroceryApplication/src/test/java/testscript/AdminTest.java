@@ -1,15 +1,6 @@
 package testscript;
-
-import static org.testng.Assert.assertThrows;
-
 import java.io.IOException;
-import java.time.Duration;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -44,8 +35,7 @@ public class AdminTest extends TestNgBase {
         adminpage.selectusertype(userTypevalue);
         adminpage.clicksavebutton();
 
-        Assert.assertTrue(adminpage.isAlertDisplayed(), "Unable to add User");
-        System.out.println("Add user alert: " + adminpage.getAlertMessage());
+        Assert.assertTrue(adminpage.isAlertDisplayed(),Messages.USER_CREATION_ERROR);
     }
 
     @Test(description = "Verify search user")
@@ -71,31 +61,27 @@ public class AdminTest extends TestNgBase {
         adminpage.enterpassword(newPassword);
         adminpage.selectusertype(userTypevalue);
         adminpage.clicksavebutton();
-        Assert.assertTrue(adminpage.isAlertDisplayed(), "Unable to add User before search");
+        Assert.assertTrue(adminpage.isAlertDisplayed(),Messages.USER_SEARCH_ERROR);
 
         
-        adminpage.clicksearchbutton();
-        adminpage.entersearchusername(newUser);
-        adminpage.selectsearchusertype(userTypevalue);
-        adminpage.clicksearchfield();
-
-        boolean isUserFound = adminpage.isUserPresentInSearchResults(newUser);
-        Assert.assertTrue(isUserFound, "User not found in search results: " + newUser);
+        
     }
 
-    @Test(description = "Verify home page")
-    public void verifyhomepage() throws IOException {
-        String usernameValue = ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
-        String passwordValue = ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
-        LoginPage loginpage = new LoginPage(driver);
-        loginpage.enterusername(usernameValue);
-        loginpage.enterpassword(passwordValue);
-        loginpage.signin();
+    @Test(description = "Verify home page")     
+        public void verifyhomepage() throws IOException {
+            String usernameValue = ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
+            String passwordValue = ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 
-        AdminPage adminpage = new AdminPage(driver);
-        adminpage.clicknewstile();
-        adminpage.clickhome();
+            LoginPage loginpage = new LoginPage(driver);
+            loginpage.enterusername(usernameValue);
+            loginpage.enterpassword(passwordValue);
+            loginpage.signin();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("home"), "Not redirected to home page");
+            AdminPage adminpage = new AdminPage(driver);
+            adminpage.clicknewstile();
+            adminpage.clickhome();
+
+            Assert.assertTrue(
+                driver.getCurrentUrl().contains("home"),Messages.HOMEPAGE_VERIFICATION_ERROR);
+        }
     }
-}

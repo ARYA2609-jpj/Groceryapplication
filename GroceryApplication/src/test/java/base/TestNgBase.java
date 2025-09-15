@@ -12,21 +12,32 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import utilities.ScreenshotUtility;
 
 public class TestNgBase {
 	public WebDriver driver;
 	
-	@BeforeMethod
-	public void intialzeBrowser() {
+	@BeforeMethod(alwaysRun = true)
+	@Parameters("browser")
+	public void intialzeBrowser(String browser) throws Exception {
 		//driver=new FirefoxDriver();
 		//driver=new ChromeDriver();
-		ChromeOptions options = new ChromeOptions();
-		Map<String,Object> prefs=new HashMap<>();
-		prefs.put("profile.password_manager_leak_detection", false);
-		options.setExperimentalOption("prefs", prefs);
-		driver=new ChromeDriver(options);
+		if(browser.equalsIgnoreCase("Chrome")) {
+			//driver=new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			Map<String,Object> prefs=new HashMap<>();
+			prefs.put("profile.password_manager_leak_detection", false);
+			options.setExperimentalOption("prefs", prefs);
+			driver=new ChromeDriver(options);
+		}
+		else if(browser.equalsIgnoreCase("Firefox")) {
+			driver=new FirefoxDriver();
+		}
+else {
+			throw new Exception("Invalid browser name");
+		}
 		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
