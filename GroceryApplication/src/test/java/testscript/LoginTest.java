@@ -11,19 +11,21 @@ import org.testng.annotations.Test;
 import base.TestNgBase;
 import constant.Constants;
 import constant.Messages;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends TestNgBase {
-	@Test(priority =1,description = "verify login with valid credentials",retryAnalyzer = retry.Retry.class)
+	HomePage home;
+	@Test(priority =1,description = "verify login with valid credentials",retryAnalyzer = retry.Retry.class,groups = {"smoke"})
 	public void verifyloginwithvalidcredentials() throws IOException {
 		String usernameValue=ExcelUtility.getStringData(1,0, Constants.LOGINSHEET );
 		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterusername(usernameValue);
-		loginpage.enterpassword(passwordValue);
-		loginpage.signin(); 
+		loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+		home=loginpage.signin();
+		
 		String expected="https://groceryapp.uniqassosiates.com/admin";
 		String actual=driver.getCurrentUrl();
 		Assert.assertEquals(actual, expected,Messages.VALID_CREDENTIALS_ERROR);
@@ -36,9 +38,7 @@ public class LoginTest extends TestNgBase {
 		String username=ExcelUtility.getStringData(2, 0, Constants.LOGINSHEET);
 		String password=ExcelUtility.getStringData(2, 1, Constants.LOGINSHEET);
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterusername(username);
-		loginpage.enterpassword(password);
-		loginpage.signin(); 
+		loginpage.enterusername(username).enteroassword(password).signin(); 
 		String expected="https://groceryapp.uniqassosiates.com/admin/login";
 		String actual=driver.getCurrentUrl();
 		Assert.assertEquals(actual, expected,Messages.INVALID_PASSWORD_ERROR);
@@ -49,9 +49,8 @@ public class LoginTest extends TestNgBase {
 		String username=ExcelUtility.getStringData(3, 0, Constants.LOGINSHEET);
 		String password=ExcelUtility.getStringData(3, 1, Constants.LOGINSHEET);
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterusername(username);
-		loginpage.enterpassword(password);
-		loginpage.signin(); 
+		loginpage.enterusername(username).enteroassword(password).signin(); 
+		
 		String expected="https://groceryapp.uniqassosiates.com/admin/login";
 		String actual=driver.getCurrentUrl();
 		Assert.assertEquals(actual, expected,Messages.INVALID_USERNAME_ERROR);
@@ -62,9 +61,7 @@ public class LoginTest extends TestNgBase {
 		//String username=ExcelUtility.getStringData(4, 0, Constants.LOGINSHEET);
 		//String password=ExcelUtility.getStringData(4, 1, Constants.LOGINSHEET);
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterusername(usernameValue);
-		loginpage.enterpassword(passwordValue);
-		loginpage.signin(); 
+		loginpage.enterusername(usernameValue).enteroassword(passwordValue).signin(); 
 		String expected="https://groceryapp.uniqassosiates.com/admin/login";
 		String actual=driver.getCurrentUrl();
 		Assert.assertEquals(actual, expected,Messages.INVALID_CREDENTIALS_ERROR);

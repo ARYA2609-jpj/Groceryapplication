@@ -19,7 +19,7 @@ public class AdminTest extends TestNgBase {
         String passwordValue = ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
         LoginPage loginpage = new LoginPage(driver);
         loginpage.enterusername(usernameValue);
-        loginpage.enterpassword(passwordValue);
+        loginpage.enteroassword(passwordValue);
         loginpage.signin();
 
         FakerUtility fakerUtility = new FakerUtility();
@@ -44,7 +44,7 @@ public class AdminTest extends TestNgBase {
         String passwordValue = ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
         LoginPage loginpage = new LoginPage(driver);
         loginpage.enterusername(usernameValue);
-        loginpage.enterpassword(passwordValue);
+        loginpage.enteroassword(passwordValue);
         loginpage.signin();
 
         FakerUtility fakerUtility = new FakerUtility();
@@ -74,7 +74,7 @@ public class AdminTest extends TestNgBase {
 
             LoginPage loginpage = new LoginPage(driver);
             loginpage.enterusername(usernameValue);
-            loginpage.enterpassword(passwordValue);
+            loginpage.enteroassword(passwordValue);
             loginpage.signin();
 
             AdminPage adminpage = new AdminPage(driver);

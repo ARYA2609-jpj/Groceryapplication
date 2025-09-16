@@ -8,10 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class AdminPage {
     public WebDriver driver;
-    PageUtility pageUtility = new PageUtility();  
+    PageUtility pageUtility = new PageUtility();
+    WaitUtility waitutility= new WaitUtility();
 
     public AdminPage(WebDriver driver) {
         this.driver = driver;
@@ -45,8 +47,7 @@ public class AdminPage {
     @FindBy(xpath = "//select[@id='user_type']")WebElement usertype;
 
     public void selectusertype(String userTypevalue) {
-        Select select = new Select(usertype);
-        select.selectByVisibleText(userTypevalue);
+        pageUtility.selectByVisibleText(addUserAlert, userTypevalue);
     }
 
     @FindBy(xpath = "//button[@name='Create']")WebElement savefield;
@@ -72,6 +73,7 @@ public class AdminPage {
     @FindBy(xpath = "//a[@class='btn btn-rounded btn-primary']")WebElement searchbutton;
 
     public void clicksearchbutton() {
+    	waitutility.waitUntilClickable(driver, searchbutton);
         pageUtility.clickonelement(searchbutton);  
     }
 
@@ -84,8 +86,7 @@ public class AdminPage {
     @FindBy(xpath = "//select[@name='ut']") WebElement searchusertype;
 
     public void selectsearchusertype(String userTypevalue) {
-        Select select = new Select(searchusertype);
-        select.selectByVisibleText(userTypevalue);
+        pageUtility.selectByVisibleText(searchusertype, userTypevalue);
     }
 
     @FindBy(xpath = "//button[@name='Search']")WebElement searchfield;

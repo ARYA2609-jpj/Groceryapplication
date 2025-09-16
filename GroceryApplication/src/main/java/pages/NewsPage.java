@@ -13,10 +13,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class NewsPage {
     public WebDriver driver;
-    PageUtility pageUtility = new PageUtility();   
+    PageUtility pageUtility = new PageUtility();
+    WaitUtility waitutility= new WaitUtility();
+    
     public NewsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -25,6 +28,7 @@ public class NewsPage {
     @FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")WebElement newstile;
 
     public void clicknewstile() {
+    	waitutility.waitUntilClickable(driver, newstile);
         pageUtility.clickonelement(newstile);  
     }
 
@@ -55,7 +59,7 @@ public class NewsPage {
     @FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")WebElement newstiles;
 
     public void clicknewstiles() {
-        pageUtility.clickonelement(newstile);  
+         
     }
 
     @FindBy(xpath = "//a[@class='btn btn-rounded btn-warning' and @href='https://groceryapp.uniqassosiates.com/admin/list-news']")WebElement resetfield;

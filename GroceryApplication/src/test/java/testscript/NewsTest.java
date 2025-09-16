@@ -26,7 +26,7 @@ public class NewsTest extends TestNgBase {
 		String passwordValue=ExcelUtility.getStringData(6, 1, Constants.LOGINSHEET);
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterusername(usernameValue);
-		loginpage.enterpassword(passwordValue);
+		loginpage.enteroassword(passwordValue);
 		loginpage.signin();
 		NewsPage newspage = new NewsPage(driver);
 		newspage.clicknewstile();
@@ -49,7 +49,7 @@ public class NewsTest extends TestNgBase {
 		String passwordValue=ExcelUtility.getStringData(6, 1, Constants.LOGINSHEET);	
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterusername(usernameValue);
-		loginpage.enterpassword(passwordValue);
+		loginpage.enteroassword(passwordValue);
 		loginpage.signin();
 		NewsPage newspage = new NewsPage(driver);
 		newspage.clicknewstiles();
