@@ -29,7 +29,7 @@ public class LoginPage {
 		
 	}
 	@FindBy(xpath="//input[@name='password']")WebElement passwords;
-	public LoginPage enteroassword(String passwordValue) {
+	public LoginPage enterpassword(String passwordValue) {
 		pageutility.sendDataToElement(passwords, passwordValue);
 		return this;
 	//passwords.sendKeys(passwordValue);

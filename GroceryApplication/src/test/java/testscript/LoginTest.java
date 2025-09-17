@@ -2,8 +2,6 @@ package testscript;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -23,7 +21,7 @@ public class LoginTest extends TestNgBase {
 		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+		loginpage.enterusername(usernameValue).enterpassword(passwordValue);
 		home=loginpage.signin();
 		
 		String expected="https://groceryapp.uniqassosiates.com/admin";
@@ -38,7 +36,7 @@ public class LoginTest extends TestNgBase {
 		String username=ExcelUtility.getStringData(2, 0, Constants.LOGINSHEET);
 		String password=ExcelUtility.getStringData(2, 1, Constants.LOGINSHEET);
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterusername(username).enteroassword(password).signin(); 
+		loginpage.enterusername(username).enterpassword(password).signin(); 
 		String expected="https://groceryapp.uniqassosiates.com/admin/login";
 		String actual=driver.getCurrentUrl();
 		Assert.assertEquals(actual, expected,Messages.INVALID_PASSWORD_ERROR);
@@ -49,7 +47,7 @@ public class LoginTest extends TestNgBase {
 		String username=ExcelUtility.getStringData(3, 0, Constants.LOGINSHEET);
 		String password=ExcelUtility.getStringData(3, 1, Constants.LOGINSHEET);
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterusername(username).enteroassword(password).signin(); 
+		loginpage.enterusername(username).enterpassword(password).signin(); 
 		
 		String expected="https://groceryapp.uniqassosiates.com/admin/login";
 		String actual=driver.getCurrentUrl();
@@ -61,7 +59,7 @@ public class LoginTest extends TestNgBase {
 		//String username=ExcelUtility.getStringData(4, 0, Constants.LOGINSHEET);
 		//String password=ExcelUtility.getStringData(4, 1, Constants.LOGINSHEET);
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterusername(usernameValue).enteroassword(passwordValue).signin(); 
+		loginpage.enterusername(usernameValue).enterpassword(passwordValue).signin(); 
 		String expected="https://groceryapp.uniqassosiates.com/admin/login";
 		String actual=driver.getCurrentUrl();
 		Assert.assertEquals(actual, expected,Messages.INVALID_CREDENTIALS_ERROR);

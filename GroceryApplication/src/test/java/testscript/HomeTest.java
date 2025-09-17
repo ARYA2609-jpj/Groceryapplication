@@ -2,8 +2,6 @@ package testscript;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,7 +20,7 @@ public class HomeTest extends TestNgBase {
 		String passwordValue=ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 		LoginPage loginpage=new LoginPage(driver);
 
-		loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+		loginpage.enterusername(usernameValue).enterpassword(passwordValue);
 		homePage=loginpage.signin();
 		
 		 

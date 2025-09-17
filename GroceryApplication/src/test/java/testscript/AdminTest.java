@@ -21,7 +21,7 @@ public class AdminTest extends TestNgBase {
         String usernameValue = ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
         String passwordValue = ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
         LoginPage loginpage = new LoginPage(driver);
-        loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+        loginpage.enterusername(usernameValue).enterpassword(passwordValue);
 		homepage=loginpage.signin();
         
 
@@ -31,7 +31,7 @@ public class AdminTest extends TestNgBase {
         String userTypevalue = ExcelUtility.getStringData(1, 2, Constants.ADMINSHEET);
 
         adminpage=homepage.clickadmintile();
-        homepage.clickadmintile();
+        
         adminpage.clicknewbutton().enterusername(usernameValue).enterpassword(newPassword).selectusertype(userTypevalue).clicksavebutton();
         
 
@@ -43,7 +43,7 @@ public class AdminTest extends TestNgBase {
         String usernameValue = ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
         String passwordValue = ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
         LoginPage loginpage = new LoginPage(driver);
-        loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+        loginpage.enterusername(usernameValue).enterpassword(passwordValue);
 		homepage=loginpage.signin();
 
         FakerUtility fakerUtility = new FakerUtility();
@@ -56,10 +56,7 @@ public class AdminTest extends TestNgBase {
 
         
         adminpage.adminclicksearchfield().entersearchusername(usernameValue).enterpassword(newPassword).selectusertype(userTypevalue).clicksavebutton();
-        adminpage.enterusername(newUser);
-        adminpage.enterpassword(newPassword);
-        adminpage.selectusertype(userTypevalue);
-        adminpage.clicksavebutton();
+        
         Assert.assertTrue(adminpage.isAlertDisplayed(),Messages.USER_SEARCH_ERROR);
 
         
@@ -72,7 +69,7 @@ public class AdminTest extends TestNgBase {
             String passwordValue = ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 
             LoginPage loginpage = new LoginPage(driver);
-            loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+            loginpage.enterusername(usernameValue).enterpassword(passwordValue);
     		homepage=loginpage.signin();
 
             
