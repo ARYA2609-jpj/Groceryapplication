@@ -25,29 +25,27 @@ public class NewsPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")WebElement newstile;
-
-    public void clicknewstile() {
-    	waitutility.waitUntilClickable(driver, newstile);
-        pageUtility.clickonelement(newstile);  
-    }
+   
 
     @FindBy(xpath = "//a[@class='btn btn-rounded btn-danger' and @href='https://groceryapp.uniqassosiates.com/admin/news/add']")WebElement addnewsbutton;
 
-    public void clickaddnewsbutton() {
-        pageUtility.clickonelement(addnewsbutton);  
+    public NewsPage clickaddnewsbutton() {
+        pageUtility.clickonelement(addnewsbutton);
+        return this;
     }
 
     @FindBy(xpath = "//textarea[@placeholder='Enter the news']")WebElement newsfield;
 
-    public void enternews(String news) {
+    public NewsPage enternews(String news) {
         pageUtility.sendDataToElement(newsfield, news);  
+        return this;
     }
 
     @FindBy(xpath = "//button[@name='create']")WebElement savenews;
 
-    public void clicksavenews() {
-        pageUtility.clickonelement(savenews);  
+    public NewsPage clicksavebutton() {
+        pageUtility.clickonelement(savenews);
+        return this;
     }
 
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement newsalert;
@@ -56,15 +54,13 @@ public class NewsPage {
         return newsalert.isDisplayed();
     }
 
-    @FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")WebElement newstiles;
 
-    public void clicknewstiles() {
-         
-    }
+    
 
     @FindBy(xpath = "//a[@class='btn btn-rounded btn-warning' and @href='https://groceryapp.uniqassosiates.com/admin/list-news']")WebElement resetfield;
 
-    public void clickresetbutton() {
-        pageUtility.clickonelement(resetfield);  
+    public NewsPage clickresetbutton() {
+        pageUtility.clickonelement(resetfield); 
+        return this;
     }
 }

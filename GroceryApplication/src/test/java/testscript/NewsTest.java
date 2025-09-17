@@ -15,24 +15,27 @@ import org.testng.annotations.Test;
 import base.TestNgBase;
 import constant.Constants;
 import constant.Messages;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.NewsPage;
 import utilities.ExcelUtility;
 
 public class NewsTest extends TestNgBase {
+	HomePage homepage;
+	NewsPage newspage;
 	@Test(description = "Verify add news")
 	public void verifyaddnews()throws IOException {
 		String usernameValue=ExcelUtility.getStringData(6, 0,Constants.LOGINSHEET );
 		String passwordValue=ExcelUtility.getStringData(6, 1, Constants.LOGINSHEET);
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterusername(usernameValue);
-		loginpage.enteroassword(passwordValue);
-		loginpage.signin();
-		NewsPage newspage = new NewsPage(driver);
-		newspage.clicknewstile();
-		newspage.clickaddnewsbutton();
-		newspage.enternews("This is a sample news");
-		newspage.clicksavenews();
+		loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+		homepage=loginpage.signin();
+		
+		
+		
+		newspage=homepage.clicknewstile();
+		newspage.clickaddnewsbutton().enternews("This is a sample news").clicksavebutton();
+		
 		boolean isAlertDisplayed = newspage.isnewsadded();
 		Assert.assertTrue(isAlertDisplayed, Messages.NEWS_CREATION_ERROR);
 
@@ -48,11 +51,10 @@ public class NewsTest extends TestNgBase {
 		String usernameValue=ExcelUtility.getStringData(6, 0,Constants.LOGINSHEET );
 		String passwordValue=ExcelUtility.getStringData(6, 1, Constants.LOGINSHEET);	
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterusername(usernameValue);
-		loginpage.enteroassword(passwordValue);
-		loginpage.signin();
-		NewsPage newspage = new NewsPage(driver);
-		newspage.clicknewstiles();
+		loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+		homepage=loginpage.signin();
+		
+		newspage=homepage.clicknewstile();
 
 		//WebElement newsclick=driver.findElement(By.xpath("//a[@class='btn btn-rounded btn-danger' and @href='https://groceryapp.uniqassosiates.com/admin/news/add']"));
 		//newsclick.click();

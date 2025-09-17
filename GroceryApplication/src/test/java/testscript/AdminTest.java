@@ -8,32 +8,32 @@ import base.TestNgBase;
 import constant.Constants;
 import constant.Messages;
 import pages.AdminPage;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
 public class AdminTest extends TestNgBase {
+	HomePage homepage;
+	AdminPage adminpage;
 	@Test(description = "Verify add user")
 	public void verifyadduser() throws IOException {
         String usernameValue = ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
         String passwordValue = ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
         LoginPage loginpage = new LoginPage(driver);
-        loginpage.enterusername(usernameValue);
-        loginpage.enteroassword(passwordValue);
-        loginpage.signin();
+        loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+		homepage=loginpage.signin();
+        
 
         FakerUtility fakerUtility = new FakerUtility();
         String newUser = fakerUtility.createRandomUserName();
         String newPassword = fakerUtility.createRandomPassword();
         String userTypevalue = ExcelUtility.getStringData(1, 2, Constants.ADMINSHEET);
 
-        AdminPage adminpage = new AdminPage(driver);
-        adminpage.clickadmintile();
-        adminpage.clicknewbutton();
-        adminpage.enterusername(newUser);
-        adminpage.enterpassword(newPassword);
-        adminpage.selectusertype(userTypevalue);
-        adminpage.clicksavebutton();
+        adminpage=homepage.clickadmintile();
+        homepage.clickadmintile();
+        adminpage.clicknewbutton().enterusername(usernameValue).enterpassword(newPassword).selectusertype(userTypevalue).clicksavebutton();
+        
 
         Assert.assertTrue(adminpage.isAlertDisplayed(),Messages.USER_CREATION_ERROR);
     }
@@ -43,20 +43,19 @@ public class AdminTest extends TestNgBase {
         String usernameValue = ExcelUtility.getStringData(1, 0, Constants.LOGINSHEET);
         String passwordValue = ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
         LoginPage loginpage = new LoginPage(driver);
-        loginpage.enterusername(usernameValue);
-        loginpage.enteroassword(passwordValue);
-        loginpage.signin();
+        loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+		homepage=loginpage.signin();
 
         FakerUtility fakerUtility = new FakerUtility();
         String newUser = fakerUtility.createRandomUserName();
         String newPassword = fakerUtility.createRandomPassword();
         String userTypevalue = ExcelUtility.getStringData(1, 2, Constants.ADMINSHEET);
 
-        AdminPage adminpage = new AdminPage(driver);
-        adminpage.clickadmintile();
+        
+        adminpage=homepage.clickadmintile();
 
         
-        adminpage.clicknewbutton();
+        adminpage.adminclicksearchfield().entersearchusername(usernameValue).enterpassword(newPassword).selectusertype(userTypevalue).clicksavebutton();
         adminpage.enterusername(newUser);
         adminpage.enterpassword(newPassword);
         adminpage.selectusertype(userTypevalue);
@@ -73,12 +72,11 @@ public class AdminTest extends TestNgBase {
             String passwordValue = ExcelUtility.getStringData(1, 1, Constants.LOGINSHEET);
 
             LoginPage loginpage = new LoginPage(driver);
-            loginpage.enterusername(usernameValue);
-            loginpage.enteroassword(passwordValue);
-            loginpage.signin();
+            loginpage.enterusername(usernameValue).enteroassword(passwordValue);
+    		homepage=loginpage.signin();
 
-            AdminPage adminpage = new AdminPage(driver);
-            adminpage.clicknewstile();
+            
+            adminpage=homepage.clickadmintile();
             adminpage.clickhome();
 
             Assert.assertTrue(

@@ -20,40 +20,41 @@ public class AdminPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='small-box-footer']")WebElement admintile;
-
-    public void clickadmintile() {
-        pageUtility.clickonelement(admintile);  
-    }
+    
 
     @FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")WebElement newfield;
 
-    public void clicknewbutton() {
+    public AdminPage clicknewbutton() {
         pageUtility.clickonelement(newfield); 
+        return this;
     }
 
     @FindBy(xpath = "//input[@name='username']")WebElement username;
 
-    public void enterusername(String name) {
-        pageUtility.sendDataToElement(username, name);  
+    public AdminPage enterusername(String name) {
+        pageUtility.sendDataToElement(username, name);
+        return this;
     }
 
     @FindBy(xpath = "//input[@name='password']")WebElement passwordvalue;
 
-    public void enterpassword(String password) {
-        pageUtility.sendDataToElement(passwordvalue, password);  
+    public AdminPage enterpassword(String password) {
+        pageUtility.sendDataToElement(passwordvalue, password);
+        return this;
     }
 
     @FindBy(xpath = "//select[@id='user_type']")WebElement usertype;
 
-    public void selectusertype(String userTypevalue) {
-        pageUtility.selectByVisibleText(addUserAlert, userTypevalue);
+    public AdminPage selectusertype(String userTypevalue) {
+        pageUtility.selectByVisibleText(usertype, userTypevalue);
+        return this;
     }
 
     @FindBy(xpath = "//button[@name='Create']")WebElement savefield;
 
-    public void clicksavebutton() {
-        pageUtility.clickonelement(savefield);  
+    public AdminPage clicksavebutton() {
+        pageUtility.clickonelement(savefield);
+        return this;
     }
 
     @FindBy(xpath = "//div[contains(@class,'alert alert-success')]") WebElement addUserAlert;
@@ -79,20 +80,23 @@ public class AdminPage {
 
     @FindBy(xpath = "//input[@name='un']")WebElement searchusername;
 
-    public void entersearchusername(String uname) {
+    public AdminPage entersearchusername(String uname) {
         pageUtility.sendDataToElement(searchusername, uname); 
+        return this;
     }
 
     @FindBy(xpath = "//select[@name='ut']") WebElement searchusertype;
 
-    public void selectsearchusertype(String userTypevalue) {
+    public AdminPage selectsearchusertype(String userTypevalue) {
         pageUtility.selectByVisibleText(searchusertype, userTypevalue);
+        return this;
     }
 
     @FindBy(xpath = "//button[@name='Search']")WebElement searchfield;
 
-    public void clicksearchfield() {
-        pageUtility.clickonelement(searchfield);  
+    public AdminPage adminclicksearchfield() {
+        pageUtility.clickonelement(searchfield);
+        return this;
     }
 
     public boolean isUserPresentInSearchResults(String expectedUser) {
@@ -112,7 +116,8 @@ public class AdminPage {
 
     @FindBy(xpath = "//li[@class='breadcrumb-item']/a[text()='Home']")WebElement home;
 
-    public void clickhome() {
-        pageUtility.clickonelement(home);  
+    public HomePage clickhome() {
+        pageUtility.clickonelement(home);
+        return new HomePage(driver);
     }
 }
